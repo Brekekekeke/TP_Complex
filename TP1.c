@@ -136,6 +136,7 @@ void methode2(retour * monRetour, int *T, int paramk, int paraml, bool verb) {
 
 void methode3 (retour * monRetour, int * T, int paramk, int paraml, bool verb) {
 // diviser pour régner Diviser la sequence en 2, calculer la sous sequence gauche puis droite puis une qui contient l'élement du milieu puis prendre le max des 3
+// implémentation du cours "Structures de données et algorithmes" de Pierre Geurts http://www.montefiore.ulg.ac.be/~geurts/Cours/sda/2011/06-resolution-a.pdf
 	if(DEBUG == true){printf("METHODE 3\n");}
 	moitie(monRetour, T, paramk, paraml, false); 
 	if (verb == true) {
