@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	bool verb = false;
 	int t;
 	printf("argc: %d, argv: %s\n", argc, argv[1]);
-	if (argc == 2) {
+	if (argc >= 2) {
 		t = atoi(argv[1]);
 	} else {
 		t = TAILLETAB;
@@ -53,16 +53,24 @@ int main(int argc, char *argv[])
 	int T[t];
 	remplirTab(T, t);
 	//printTab(T, 0, t - 1);
-	
-
-	retour retour4; retour4.methode = 4; methode4(&retour4, T, 0, t - 1, verb); printRetour(&retour4);
-	
-	retour retour3; retour3.methode = 3; methode3(&retour3, T, 0, t - 1, verb); printRetour(&retour3);
-	
-	//retour retour2; retour2.methode = 2; methode2(&retour2, T, 0, t - 1, verb); printRetour(&retour2);
-	
-	//retour retour1; retour1.methode = 1; methode1(&retour1, T, t, verb); printRetour(&retour1);
-	
+	if (argc == 3) {
+		if (atoi(argv[2]) == 4) {
+			retour retour4; retour4.methode = 4; methode4(&retour4, T, 0, t - 1, verb); printRetour(&retour4);
+		} else if (atoi(argv[2]) == 3) {
+			retour retour3; retour3.methode = 3; methode3(&retour3, T, 0, t - 1, verb); printRetour(&retour3);
+		} else if (atoi(argv[2]) == 2) {
+			retour retour2; retour2.methode = 2; methode2(&retour2, T, 0, t - 1, verb); printRetour(&retour2);
+		} else if (atoi(argv[2]) == 1) {
+			retour retour1; retour1.methode = 1; methode1(&retour1, T, t, verb); printRetour(&retour1);
+		} else {
+			printf("Il n'y a que 4 methodes...\n");
+		}
+	} else {
+		retour retour4; retour4.methode = 4; methode4(&retour4, T, 0, t - 1, verb); printRetour(&retour4);
+		retour retour3; retour3.methode = 3; methode3(&retour3, T, 0, t - 1, verb); printRetour(&retour3);
+		retour retour2; retour2.methode = 2; methode2(&retour2, T, 0, t - 1, verb); printRetour(&retour2);
+		retour retour1; retour1.methode = 1; methode1(&retour1, T, t, verb); printRetour(&retour1);
+	}
 	return 0;
 }
 
