@@ -1,3 +1,12 @@
+/*
+ * Utilisation:
+ * Tous les paramètres sont facultatifs.
+ * Sans paramètre, construit un tableau de taille TAILLETAB et exécute toutes les méthodes.
+ * Le premier paramètre indique la taille du tableau souhaité et exécute toutes les méthodes.
+ * Le deuxième paramètre indique le numéro de la méthode utilisée.
+ * Le troisième paramètre indique le souhait d'exécuter la méthode 4 à fin de comparaison des résultats. 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,8 +27,6 @@ int KMAX;
 int LMAX;
 int SOMMEMAX;
 
-
-// TODO : vérifier le kmax de methode 3
 
 typedef struct retour retour;
 struct retour {
@@ -44,7 +51,7 @@ int main(int argc, char *argv[])
 {
 	bool verb = false;
 	int t;
-	printf("argc: %d, argv: %s\n", argc, argv[1]);
+	if(DEBUG==true){printf("argc: %d, argv: %s\n", argc, argv[1]);}
 	if (argc >= 2) {
 		t = atoi(argv[1]);
 	} else {
@@ -53,7 +60,11 @@ int main(int argc, char *argv[])
 	int T[t];
 	remplirTab(T, t);
 	//printTab(T, 0, t - 1);
-	if (argc == 3) {
+	printf("Le tableau est de taille %s\n", argv[1]);
+	if (argc == 4) {
+		retour retour4; retour4.methode = 4; methode4(&retour4, T, 0, t - 1, verb); printRetour(&retour4);
+	}
+	if (argc >= 3) {
 		if (atoi(argv[2]) == 4) {
 			retour retour4; retour4.methode = 4; methode4(&retour4, T, 0, t - 1, verb); printRetour(&retour4);
 		} else if (atoi(argv[2]) == 3) {
